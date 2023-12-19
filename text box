@@ -1,0 +1,23 @@
+ <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
+        <Typography
+          component="label"
+          htmlFor="newField" // Update this to your actual ID
+          sx={{
+            color: "#000000",
+            marginRight: "20px",
+            fontSize: "16px",
+            width: "100px",
+            display: "block",
+          }}
+        >
+          New Field Label
+        </Typography>
+        <Input
+          type="text" // Update this to your desired type
+          //id="newField" // Update this to your actual ID
+          name="newField" // Update this to your actual name
+          sx={{ width: "400px" }}
+          //value={newField}
+          //onChange={handleChangeNewField}
+        />
+      </Grid>
