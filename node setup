@@ -7,3 +7,4 @@ create   app.js
 
 npm install
 npm install express
+npm cors
