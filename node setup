@@ -11,4 +11,4 @@ npm cors
 
 //after app.js and server.js
 
-npm i nodemon
+npm i nodemon -g //to install globally
