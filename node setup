@@ -8,3 +8,7 @@ create   app.js
 npm install
 npm install express
 npm cors
+
+//after app.js and server.js
+
+npm i nodemon
