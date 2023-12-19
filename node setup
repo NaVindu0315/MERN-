@@ -4,3 +4,6 @@ defualt  Server.js
 create   app.js
          server.js
          controller.js
+
+npm install
+npm install express
