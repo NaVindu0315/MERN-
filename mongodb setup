@@ -24,4 +24,9 @@ const connect = async() => {
     }
 
 }
+
+//
+in the controller.js and app.js 
+model.js is used for data type and things
+
 connect();
