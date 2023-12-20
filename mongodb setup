@@ -30,3 +30,147 @@ in the controller.js and app.js
 model.js is used for data type and things
 
 connect();
+
+in the controller.js
+//////////
+//create user
+
+const addUser = (req,res,next)=>
+{
+    const user = new User(
+        {
+            id :  req.body.id,
+            name: req.body.name,
+        }
+    );
+    user.save()
+    .then(response=>
+        {
+            res.json({response})
+        })
+        .catch(error=>{
+            res.json({error})
+        });
+}
+
+
+
+//retrieve user
+const getUsers = (req,res,next)=>
+{
+    User.find()
+        .then(response=>
+            {
+                res.json({response})
+            })
+            .catch(error=>{
+                res.json({error})
+            });
+}
+
+
+
+//update user
+const updateUser  = (req,res,next)=> 
+{
+    //object destructuring 
+    const {id,name} = req.body;
+    User.updateOne({id:id}, { $set : {name :name}
+    })
+    .then(response=>
+        {
+            res.json({response})
+        })
+        .catch(error=>{
+            res.json({error})
+        });
+
+}
+
+
+//delete user
+const deleteUser = (req,res,next)=>
+{
+    const id = req.body.id;
+    User.deleteOne({id:id})
+    .then(response=>
+        {
+            res.json({response})
+        })
+        .catch(error=>{
+            res.json({error})
+        });
+
+}
+
+
+
+
+exports.getUsers = getUsers;
+exports.addUser = addUser;
+exports.updateUser = updateUser;
+exports.deleteUser = deleteUser;
+//exports.getUsersByID =getUsersByID;
+
+//this is for the crud with the mongodb
+/////////////////////////
+
+in app.js 
+//api calling or something idk
+//creating getAPI data retrieving api
+//retreving data 
+app.get('/users',(req,res)=>{
+    var resobj = [];
+    controller.getUsers(req,res,next =>
+        {
+            res.send();
+        });
+
+
+});
+//adding new user
+app.post('/createuser',(req,res)=>
+{
+    
+    controller.addUser(req.body,(callback)=>
+        {
+            res.send();
+
+
+        }
+    );
+
+});
+
+//update user 
+app.post('/updateuser',(req,res)=>
+{
+    
+    controller.updateUser(req.body,(callback)=>
+        {
+            res.send(callback);
+
+
+        }
+    );
+
+});
+
+//delete user
+
+app.post('/deleteuser',(req,res)=>
+{
+    
+    controller.deleteUser(req.body,(callback)=>
+        {
+            res.send(callback);
+
+
+        }
+    );
+
+});
+
+module.exports = app;
+
+
