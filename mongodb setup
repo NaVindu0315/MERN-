@@ -173,4 +173,7 @@ app.post('/deleteuser',(req,res)=>
 
 module.exports = app;
 
+////
+//after that create routes for  each functiion in crud in the router.js
+
 
