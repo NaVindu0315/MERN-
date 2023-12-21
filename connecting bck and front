@@ -14,14 +14,21 @@ in side Users component before return
         {
             getUsers();
         },[]);
-    //call the api
+      //call the api
     const getUsers =() =>
     {
         //the link given from the backend for getting users
         Axios.get('http://localhost:3001/api/users')
             .then(response=> {
-                console.log(response);
+               // console.log(response.data.response);
+               setUsers(response?.data?.response || [])
             })
+            .catch(error => {
+                console.error("Axios Error :" ,error);
+            })
+                        {
+
+            }
     }
 
 
