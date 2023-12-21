@@ -2,3 +2,27 @@ in the user.js where form and table is called
 first import axios
 //import for connecting backend and front end
 import Axios from "axios";
+import { useEffect ,useState } from "react";
+
+in side Users component before return
+
+  //creating a state variable inside the Users component
+        const [users,setUsers] = useState([]);
+        
+        //when calling a function when the page runs 
+    useEffect(()=>
+        {
+            getUsers();
+        },[]);
+    //call the api
+    const getUsers =() =>
+    {
+        //the link given from the backend for getting users
+        Axios.get('http://localhost:3001/api/users')
+            .then(response=> {
+                console.log(response);
+            })
+    }
+
+
+
