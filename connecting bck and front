@@ -1,0 +1,4 @@
+in the user.js where form and table is called 
+first import axios
+//import for connecting backend and front end
+import Axios from "axios";
