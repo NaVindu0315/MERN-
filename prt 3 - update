@@ -37,17 +37,18 @@ in side the component
           submitted ={submitted}
           />
          <UsersTable rows= {users} 
-         selecteduser={data=>{
+         selectedUser={data=>{
             setSelectedUser(data);
             isedit(true);
          }}
          
          />
-
+component in usetable
+const UsersTable = ({rows, selectedUser}) =>
 
 ////update button in usertable
    <TableCell>
-                                <Button sx={{margin:'0px 10px'}}
+                            <Button sx={{margin:'0px 10px'}}
                                 onClick={
                                     () =>
                                     selectedUser({
@@ -59,15 +60,6 @@ in side the component
                                 >
                                 Update
                                 </Button>
-                                <Button sx={{margin:'0px 10px'}}
-                                onClick={
-                                    () =>
-                                    {
-
-                                    }
-                                }
-                                
-                                >
 
 in userform.js
 before the return
