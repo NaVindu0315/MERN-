@@ -1,0 +1,60 @@
+in the users.js 
+
+//delete function
+    const deleteUser = (data)=>{
+
+        
+     
+        Axios.post('http://localhost:3001/api/deleteuser',data)
+        .then(response=> {
+            // console.log(response.data.response);
+           getUsers();
+           
+         })
+         .catch(error => {
+             console.error("Axios Error :" ,error);
+         });
+                    
+
+    }
+///////////////////////////////////////////
+
+    aftrt that in userform
+    in side the delete button onclikc
+   </Button>
+                                <Button sx={{margin:'0px 10px'}}
+                                onClick={
+                                    () =>
+                                    {
+                                        deleteUser({id:row.id})
+
+                                    }
+                                }
+                                
+                                >
+                                delete
+                                </Button>
+//////////////////////////////////
+in the  users.js
+in side the usertable
+
+   <UsersTable rows= {users} 
+         selectedUser={data=>{
+            setSelectedUser(data);
+            setIsEdit(true);
+         }}
+         // calling the delete function
+         deleteUser={data=>{
+            //adding a confirmation box 
+            window.confirm('aru u sure ?')&& deleteUser(data);
+         }}
+         
+         />
+
+
+  //////////////////
+  in the usetable 
+  uertable component
+  const UsersTable = ({rows, selectedUser,deleteUser}) =>
+
+  /////////////////////////
