@@ -1,0 +1,30 @@
+in side the component
+
+  //when updating 
+        const [isedit,setIsEdit] = useState(false);
+
+    //update user 
+    const updateUser=(data) =>
+    {
+        setSubmitted(true);
+           ///creating the payload
+           const payload=
+           {
+               id: data.id,
+               name: data.name,
+   
+           }
+           Axios.post('http://localhost:3001/api/updateuser',payload)
+           .then(response=> {
+               // console.log(response.data.response);
+              getUsers();
+              setSubmitted(false);
+            })
+            .catch(error => {
+                console.error("Axios Error :" ,error);
+            })
+                        {
+   
+            }
+
+    }
