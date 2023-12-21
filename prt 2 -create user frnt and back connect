@@ -1,0 +1,20 @@
+in users.js
+after user getting function
+
+ const addUser = (data)=>
+    {
+        ///creating the payload
+        const payload=
+        {
+            id: data.id,
+            name: data.name,
+
+        }
+        Axios.post('http://localhost:3001/api/createuser',payload)
+
+    }
+
+
+///in the Users component
+ //to clear the fields once the data is submitted
+        const [submitted,setSubmitted] = useState(false);
