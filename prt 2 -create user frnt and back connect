@@ -18,3 +18,45 @@ after user getting function
 ///in the Users component
  //to clear the fields once the data is submitted
         const [submitted,setSubmitted] = useState(false);
+
+   //adduser function
+
+    const addUser = (data)=>
+    {
+        ///creating the payload
+        const payload=
+        {
+            id: data.id,
+            name: data.name,
+
+        }
+        Axios.post('http://localhost:3001/api/createuser',payload)
+        .then(response=> {
+            // console.log(response.data.response);
+           getUsers();
+           setSubmitted(false);
+         })
+         .catch(error => {
+             console.error("Axios Error :" ,error);
+         })
+                     {
+
+         }
+
+    }
+
+after that in the userform
+change the userform component to this
+
+
+const Userform = ({addUser,submitted}) =>
+
+then inside the component 
+
+ useEffect(()=>{
+    if(!submitted){
+      setid(0);
+      setname('');
+    }},
+    [submitted]
+  );
