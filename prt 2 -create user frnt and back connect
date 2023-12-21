@@ -53,6 +53,11 @@ const Userform = ({addUser,submitted}) =>
 
 then inside the component 
 
+
+//declaring stat
+   const [id,setid] = useState(0);
+   const [name,setname] = useState('');
+
  useEffect(()=>{
     if(!submitted){
       setid(0);
@@ -60,3 +65,9 @@ then inside the component
     }},
     [submitted]
   );
+
+////////////////
+ in button onclick
+onClick={()=> 
+          addUser({id,name})
+        }
