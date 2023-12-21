@@ -2,6 +2,7 @@ in side the component
 
   //when updating 
         const [isedit,setIsEdit] = useState(false);
+  const [selectedUser,setSelectedUser]= useState({});
 
     //update user 
     const updateUser=(data) =>
@@ -28,3 +29,55 @@ in side the component
             }
 
     }
+
+///userform
+   <Userform
+          //adding prop for user form
+          addUser ={addUser}
+          submitted ={submitted}
+          />
+         <UsersTable rows= {users} 
+         selecteduser={data=>{
+            setSelectedUser(data);
+            isedit(true);
+         }}
+         
+         />
+
+
+////update button in usertable
+   <TableCell>
+                                <Button sx={{margin:'0px 10px'}}
+                                onClick={
+                                    () =>
+                                    selectedUser({
+                                        id: row.id,
+                                        name : row.name
+                                    })
+                                }
+                                
+                                >
+                                Update
+                                </Button>
+                                <Button sx={{margin:'0px 10px'}}
+                                onClick={
+                                    () =>
+                                    {
+
+                                    }
+                                }
+                                
+                                >
+
+in userform.js
+before the return
+  ///for updating 
+  useEffect(()=>{
+    if (  data?.id  &&data.id!==0 )
+    setid(data.id);
+  setname(data.name);
+  },[data]
+  );
+
+
+
